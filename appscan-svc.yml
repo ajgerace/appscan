@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: appscan
+  name: appscan-svc
+  namespace: default
+spec:
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: flaskt
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: appscan
+  type: ClusterIP
+

@@ -1,0 +1,24 @@
+FROM python:3.11.5-slim-bullseye
+LABEL maintainer="Anthony Gerace"
+LABEL version="1.1"
+
+RUN  mkdir -p /app
+WORKDIR /app
+
+COPY ./requirements.txt /app/requirements.txt
+
+RUN apt update && \
+    apt install -y  bash curl vim && \
+    apt clean -y && \
+    pip install -r requirements.txt && \
+    mkdir -p /app/static/css && \
+    mkdir -p /app/qkview_output
+
+COPY ./style.css /app/static/css/style.css
+
+EXPOSE 5000
+
+ADD appscan.py .
+
+ENTRYPOINT [ "python3" ]
+CMD ["appscan.py" ]

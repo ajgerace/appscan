@@ -1,0 +1,37 @@
+.header {
+  margin:auto;
+  text-align: center;
+/*  border: 1px;
+ *    border-style: double;
+ *    */
+}
+.header_table {
+  margin-left: 2%;
+  margin-top: 5%;
+  border: 2px;
+  border-style: solid;
+}
+.report {
+  margin-left: 70%;
+  margin-right: 5%;
+  padding-left: 5%;
+  border: 2px;
+  border-style: double;
+}
+
+th {
+  border-style:solid; 
+  border-width:2px;
+}
+td { 
+  padding: 5px;
+  border-style:solid;
+  border-width: 1px;
+}
+.img_class {
+  margin-left: 10%;
+  margin-top: 20px;
+  width: 500px;
+  height: 500px;
+}
+

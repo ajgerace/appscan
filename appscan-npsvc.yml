@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: appscan
+  name: appscan-npsvc
+  namespace: default
+spec:
+  ports:
+  - name: flaskt
+    port: 5000
+    protocol: TCP
+  selector:
+    app: appscan
+  type: NodePort
+

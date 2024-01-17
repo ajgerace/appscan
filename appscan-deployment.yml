@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appscan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appscan
+  template:
+    metadata:
+      labels:
+        app: appscan
+    spec:
+      containers:
+      - name: appscan
+        image: appscan:1.1.2.13
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - mountPath: /app/static
+          name: app
+        - mountPath: /app/qkview_output
+          name: app
+      volumes:
+      - name: app
+        persistentVolumeClaim:
+          claimName: appscan-pvc 
+
